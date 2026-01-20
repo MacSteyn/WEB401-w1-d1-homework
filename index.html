@@ -10,11 +10,30 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Gradient background for the clock */
+        #timeofday {
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(90deg, #4b6cb7, #182848);
+            border-radius: 10px;
+            margin: 10px auto;
+            width: fit-content;
+        }
+    </style>
 </head>
 <body id="home">
 
 <!-- Header -->
 <header>
+    <section id="timeofday">
+        <span>Your Current Local Time: </span>
+        <span id="clock"></span>
+    </section>
     <div class="main-header">
         <div class="logo">
             <img src="images/logo.png" alt="Great Cliffs Logo">
@@ -67,27 +86,62 @@
 </section>
 
 <!-- Footer -->
-<footer>
-    <div id="nondisclaimer">
-        <div class="copy">
-            Copyright 2020 :: GreatCliffs.com
-        </div>
-
-        <div class="social">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-instagram"></a>
-            <a href="#" class="fa fa-twitter"></a>
-        </div>
+<div id="nondisclaimer">
+    <div class="copy">
+        Copyright 2020 :: GreatCliffs.com
     </div>
 
-    <div id="disclaimer">
-        <p>
-            This website is designed and created solely for educational purposes only
-            at Westcliff University. All contents are not intended for any commercial
-            gain or use.
-        </p>
+    <div class="social">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-instagram"></a>
+        <a href="#" class="fa fa-twitter"></a>
     </div>
-</footer>
+</div>
+
+<div id="disclaimer">
+    <p>
+        This website is designed and created solely for educational purposes only
+        at Westcliff University. All contents are not intended for any commercial
+        gain or use.
+    </p>
+</div>
+
+<!-- JavaScript Codes -->
+<script>
+function currentTime() {
+    var d = new Date();
+    var h = d.getHours();
+    var min = d.getMinutes();
+    var sec = d.getSeconds();
+    var ampm;
+
+    // Convert 24hr to 12hr format
+    if (h == 0) { h = 12; }
+    if (h > 12) { 
+        h -= 12; 
+        ampm = "PM"; 
+    } else if (h == 12) {
+        ampm = "PM"; 
+    } else {
+        ampm = "AM"; 
+    }
+
+    // Add leading zeros
+    min = min < 10 ? "0" + min : min;
+    sec = sec < 10 ? "0" + sec : sec;
+
+    // Assemble time string
+    var time = h + ":" + min + ":" + sec + " " + ampm;
+
+    // Display in HTML
+    document.getElementById("clock").innerText = time;
+}
+
+// Initial run
+currentTime();
+// Update every second
+setInterval(currentTime, 1000);
+</script>
 
 </body>
 </html>
