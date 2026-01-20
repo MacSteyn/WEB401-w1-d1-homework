@@ -232,43 +232,6 @@ footer {
 }
 
 /* =========================
-   Activities Table
-========================== */
-table {
-    width: 100%;
-    max-width: 1000px;
-    margin: 2em auto;
-    border-collapse: collapse;
-}
-
-caption {
-    background: #852B1B;
-    color: #fff;
-    font-size: 1.3em;
-    font-weight: bold;
-    padding: 0.5em 0;
-}
-
-thead {
-    background: #BDE1FF;
-}
-
-tbody {
-    background: #eeffe6;
-    text-align: center;
-}
-
-th, td {
-    border: 1px solid #852B1B;
-    padding: 0.8em;
-}
-
-th:first-child, td:first-child {
-    background: #BDE1FF;
-    font-weight: bold;
-}
-
-/* =========================
    Forms (Contact Page)
 ========================== */
 form input[type="text"],
@@ -326,4 +289,29 @@ form input[type="submit"]:hover {
         text-align: center;
         padding: 0.5em 0;
     }
+}
+
+/* =========================
+   Home Area (Digital Clock)
+========================== */
+#timeofday {
+    font-family: Arial, Helvetica, sans-serif; /* Font */
+    font-size: 1.5em; /* Size of the clock text */
+    font-weight: bold;
+    color: #125688; /* Font color as specified */
+    text-align: center;
+    padding: 15px 25px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 40px auto 20px auto; /* Space above and below the clock */
+
+    /* Linear gradient background */
+    background: linear-gradient(
+        0deg, 
+        rgba(251,215,139,1) 0%, 
+        rgba(118,213,245,1) 100%
+    );
+
+    /* Shadow for nicer look */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
 }

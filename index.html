@@ -10,30 +10,11 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="styles.css">
-
-    <style>
-        /* Gradient background for the clock */
-        #timeofday {
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: white;
-            background: linear-gradient(90deg, #4b6cb7, #182848);
-            border-radius: 10px;
-            margin: 10px auto;
-            width: fit-content;
-        }
-    </style>
 </head>
 <body id="home">
 
 <!-- Header -->
 <header>
-    <section id="timeofday">
-        <span>Your Current Local Time: </span>
-        <span id="clock"></span>
-    </section>
     <div class="main-header">
         <div class="logo">
             <img src="images/logo.png" alt="Great Cliffs Logo">
@@ -85,6 +66,12 @@
     </ul>
 </section>
 
+<!-- Digital Clock at Bottom -->
+<section id="timeofday">
+    <span>Your Current Local Time: </span>
+    <span id="clock"></span>
+</section>
+
 <!-- Footer -->
 <div id="nondisclaimer">
     <div class="copy">
@@ -110,28 +97,48 @@
 <script>
 function currentTime() {
     var d = new Date();
-    var h = d.getHours();
-    var min = d.getMinutes();
-    var sec = d.getSeconds();
+    var h = d.getHours();        // Local hours
+    var min = d.getMinutes();    // Minutes
+    var sec = d.getSeconds();    // Seconds
     var ampm;
 
-    // Convert 24hr to 12hr format
+    // Convert 24-hour to 12-hour format
     if (h == 0) { h = 12; }
-    if (h > 12) { 
-        h -= 12; 
-        ampm = "PM"; 
+    if (h > 12) {
+        h -= 12;
+        ampm = "PM";
     } else if (h == 12) {
-        ampm = "PM"; 
+        ampm = "PM";
     } else {
-        ampm = "AM"; 
+        ampm = "AM";
     }
 
     // Add leading zeros
     min = min < 10 ? "0" + min : min;
     sec = sec < 10 ? "0" + sec : sec;
 
-    // Assemble time string
-    var time = h + ":" + min + ":" + sec + " " + ampm;
+    // -----------------------------
+    // Timezone Calculation
+    // -----------------------------
+    var utchr = d.getUTCHours();         // GMT hour
+    var timeDiff = d.getHours() - utchr; // Difference between local and GMT
+    var adjTimeDiff = timeDiff < 0 ? timeDiff + 24 : timeDiff; // Make positive
+    var timezone;
+
+    if (adjTimeDiff === 8) {
+        timezone = "PT";
+    } else if (adjTimeDiff === 7) {
+        timezone = "MT";
+    } else if (adjTimeDiff === 6) {
+        timezone = "CT";
+    } else if (adjTimeDiff === 5) {
+        timezone = "ET";
+    } else {
+        timezone = ""; // Outside these 4 zones
+    }
+
+    // Assemble final time string
+    var time = h + ":" + min + ":" + sec + " " + ampm + " " + timezone;
 
     // Display in HTML
     document.getElementById("clock").innerText = time;
