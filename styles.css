@@ -296,13 +296,13 @@ form input[type="submit"]:hover {
 ========================== */
 #timeofday {
     font-family: Arial, Helvetica, sans-serif; /* Font */
-    font-size: 1.5em; /* Size of the clock text */
+    font-size: 1.9em; /* Size of the clock text */
     font-weight: bold;
     color: #125688; /* Font color as specified */
     text-align: center;
     padding: 15px 25px;
-    border-radius: 10px;
-    width: fit-content;
+    border-radius: 60px;
+    width: full-size;
     margin: 40px auto 20px auto; /* Space above and below the clock */
 
     /* Linear gradient background */
