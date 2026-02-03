@@ -1,17 +1,23 @@
 $(document).ready(function () {
-    // Apply pointer cursor to selectable cells
-    $("tbody td").each(function () {
-        const cellText = $(this).text().trim();
-        const isNotAvailable = cellText.toLowerCase() === "not available";
-        const isActivityLabel = $(this).index() === 0;
 
-        if (!isNotAvailable && !isActivityLabel) {
-            $(this).css("cursor", "pointer");
+    // select only valid activity cells
+    $("table td").each(function () {
+        let cellText = $(this).text().trim();
+        let colIndex = $(this).index();
 
-            // Toggle selection on click
-            $(this).on("click", function () {
-                $(this).toggleClass("selected");
-            });
-        }
+        // skip first column (Hiking, Kayak, etc.)
+        if (colIndex === 0) return;
+
+        // skip "Not Available"
+        if (cellText === "Not Available") return;
+
+        // make selectable
+        $(this).css("cursor", "pointer");
+
+        // click behavior
+        $(this).on("click", function () {
+            $(this).toggleClass("selected");
+        });
     });
+
 });
