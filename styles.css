@@ -102,7 +102,8 @@ main {
     color: #333;
 }
 
-main h1, main h2 {
+main h1,
+main h2 {
     color: #9ed034;
     margin-bottom: 0.8em;
 }
@@ -261,6 +262,93 @@ form input[type="submit"]:hover {
 }
 
 /* =========================
+   Home Area (Digital Clock)
+========================== */
+#timeofday {
+    font-size: 1.9em;
+    font-weight: bold;
+    color: #125688;
+    text-align: center;
+    padding: 15px 25px;
+    border-radius: 60px;
+    margin: 20px auto;
+    background: linear-gradient(
+        0deg,
+        rgba(251,215,139,1) 0%,
+        rgba(118,213,245,1) 100%
+    );
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   Activities Page – Table
+========================== */
+.table-container {
+    margin: 2em 0;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border: 2px solid #333;
+}
+
+caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 12px;
+    color: #9ed034;
+}
+
+thead th {
+    background-color: #8b4513;
+    color: #ffffff;
+    border: 2px solid #333;
+    padding: 12px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1.5px solid #333;
+}
+
+tbody td:first-child {
+    text-align: left;
+    font-weight: bold;
+    background-color: #add8e6;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.icon {
+    margin-right: 6px;
+    color: #2e8b57;
+}
+
+.header-icon {
+    margin-right: 5px;
+}
+
+.selectable-cell {
+    cursor: pointer;
+}
+
+.not-selectable {
+    cursor: default;
+}
+
+.selected {
+    background-color: #9acd32 !important;
+    color: #ffffff;
+}
+
+/* =========================
    Responsive
 ========================== */
 @media (max-width: 768px) {
@@ -277,7 +365,7 @@ form input[type="submit"]:hover {
     .cliffs-container {
         flex-direction: column;
     }
-    
+
     #partners li {
         display: block;
         margin: 1em auto;
@@ -289,35 +377,10 @@ form input[type="submit"]:hover {
         text-align: center;
         padding: 0.5em 0;
     }
-}
 
-/* =========================
-   Home Area (Digital Clock)
-========================== */
-#timeofday {
-    font-family: Arial, Helvetica, sans-serif; /* Font */
-    font-size: 1.9em; /* Size of the clock text */
-    font-weight: bold;
-    color: #125688; /* Font color as specified */
-    text-align: center;
-    padding: 15px 25px;
-    border-radius: 60px;
-    width: full-size;
-    margin: 20px auto 20px auto; /* Space above and below the clock */
-
-    /* Linear gradient background */
-    background: linear-gradient(
-        0deg, 
-        rgba(251,215,139,1) 0%, 
-        rgba(118,213,245,1) 100%
-    );
-
-    /* Shadow for nicer look */
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-}
-
-/* for activity.html page table */
-.selected {
-    background-color: #9acd32; /* brighter green */
-    color: white;
+    th,
+    td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
 }
