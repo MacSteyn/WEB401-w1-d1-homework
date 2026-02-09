@@ -45,7 +45,7 @@
         td {
             padding: 12px;
             text-align: center;
-            border: 1.5px solid #333; /* ROW + COLUMN LINES */
+            border: 1.5px solid #333;
         }
 
         tbody td:first-child {
@@ -66,11 +66,50 @@
             margin-right: 5px;
         }
 
+        /* ===== Selected Activities Section ===== */
+        #displaySelected {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #333;
+            background-color: #f9f9f9;
+        }
+
+        #result h4 {
+            margin-bottom: 10px;
+        }
+
+        #sendinfo {
+            margin-top: 15px;
+        }
+
+        #sendinfo input {
+            padding: 8px;
+            width: 250px;
+            margin-right: 10px;
+        }
+
+        #sendinfo button {
+            padding: 8px 15px;
+            background-color: #2e8b57;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #sendinfo button:hover {
+            background-color: #256f46;
+        }
+
         @media (max-width: 768px) {
             th,
             td {
                 padding: 10px;
                 font-size: 0.9em;
+            }
+
+            #sendinfo input {
+                width: 100%;
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -115,9 +154,13 @@
     <!-- Activities Table -->
     <div class="table-container">
         <table>
-            <caption>Activities at the Cliffs</caption>
-
+            
             <thead>
+                <tr>
+                    <td class="table-heading" colspan="5">
+                        Activities at the Cliffs
+                    </td>
+                </tr>
                 <tr>
                     <th>Activity</th>
                     <th><i class="fa fa-anchor header-icon"></i>West Cliff</th>
@@ -170,12 +213,21 @@
             </tbody>
         </table>
     </div>
+
+    <!-- ===== Added Section ===== -->
+    <div id="displaySelected">
+        <div id="result">
+            <h4>My selected activities to enquire:</h4>
+        </div>
+
+        <div id="sendinfo">
+            <input type="email" placeholder="johndoe@gmail.com">
+            <button>Get Info</button>
+        </div>
+    </div>
 </main>
 
 <hr>
-
-<!-- Partners -->
-<script src="js/site_scripts.js"></script>
 
 <!-- Footer -->
 <footer>
@@ -198,7 +250,9 @@
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/site_scripts.js"></script>
 <script src="js/activity.js"></script>
 
 </body>
 </html>
+

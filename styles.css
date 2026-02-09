@@ -331,6 +331,15 @@ tbody tr:nth-child(even) {
     color: #2e8b57;
 }
 
+.table-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 12px;
+    background-color: #800000;
+    rgb: 120, 0, 0;
+    color: white;
+}
+
 .header-icon {
     margin-right: 5px;
 }
@@ -346,6 +355,38 @@ tbody tr:nth-child(even) {
 .selected {
     background-color: #9acd32 !important;
     color: #ffffff;
+}
+
+/* =========================
+   Activities Page – Selected Info (ADDED)
+========================== */
+#activities main #displaySelected {
+    visibility: hidden;
+    margin: 0 auto;
+    width: 600px;
+    border: 2px solid #9ed034;
+    padding: 0.75em;
+}
+
+#activities main #displaySelected #result,
+#activities main #displaySelected #sendinfo {
+    display: inline-block;
+    margin: 0;
+}
+
+#activities main #result {
+    min-height: 50px;
+    width: 300px;
+    padding: 0;
+}
+
+#activities main #result h4 {
+    margin-bottom: 1em;
+    font-size: 1.15em;
+}
+
+#activities main #displaySelected #sendinfo input[type="email"] {
+    width: 200px;
 }
 
 /* =========================
@@ -384,3 +425,4 @@ tbody tr:nth-child(even) {
         font-size: 0.9em;
     }
 }
+
