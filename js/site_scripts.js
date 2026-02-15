@@ -1,10 +1,26 @@
-<section>
-    <ul id="partners">
-        <!--<li><img src="images/partners/partner-bustour.png" alt="Bus Tours"></li>
-        <li><img src="images/partners/partner-cabinrental.png" alt="Cabin Rental"></li>
-        <li><img src="images/partners/partner-campingadv.png" alt="Camping Adventure"></li>
-        <li><img src="images/partners/partner-collegetours.png" alt="College Tours"></li>
-        <li><img src="images/partners/partner-rentalbike.png" alt="Bike Rental"></li>
-        <li><img src="images/partners/partner-tourgroup.png" alt="Tour Group"></li>-->
-    </ul>
-</section>
+const partners = [
+  { filename: "partner-bustour.png", alt: "Partner Bus Tours" },
+  { filename: "partner-cabinrental.png", alt: "Partner Cabin Rental" },
+  {
+    filename: "partner-campingadv.png",
+    alt: "Partner Camping Adventure",
+  },
+  { filename: "partner-collegetours.png", alt: "Partner College Tours" },
+  { filename: "partner-rentalbike.png", alt: "Partner Bike Rentals" },
+  { filename: "partner-tourgroup.png", alt: "Partner Tour Group" },
+];
+
+const partnerList = document.getElementById("partner-list");
+console.log(partnerList);
+
+partners.forEach((partner) => {
+  const li = document.createElement("li");
+  li.classList.add("partner");
+
+  const img = document.createElement("img");
+  img.src = `images/partners/${partner.filename}`;
+  img.alt = partner.alt;
+
+  li.appendChild(img);
+  partnerList.appendChild(li);
+});

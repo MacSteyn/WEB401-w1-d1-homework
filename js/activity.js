@@ -1,67 +1,50 @@
-// User interaction with table cells
+// //User interaction with table cells
+// $(document).ready(function () {
+//   $("td").click(function () {
+//     var content = $(this).text();
+//     var columnIndex = $(this).index(); // Get the index of the clicked column
+//     var cliffSiteName = $("th").eq(columnIndex).text(); // Get the text of the corresponding <th>
+
+//     if (content != "Not Available") {
+//       $(this).toggleClass("tdhighlight");
+
+//       if ($(this).hasClass("tdhighlight")) {
+//         $("#displaySelected").css("visibility", "visible");
+//         $("#displaySelected").css("margin-top", "2em");
+//         // Include the cliff site name with the activity
+//         $("#result").append("<p>" + content + " at " + cliffSiteName + "</p>");
+//       } else {
+//         $("#result p:contains(" + content + ")").remove(); //remove child element
+
+//         if ($("#result").has("p").length == 0) {
+//           // Corrected comparison: .length == 0 or .length === 0 is preferred
+//           //check if there are any child elements within parent
+//           $("#displaySelected").css("visibility", "hidden"); //make display box hidden
+//           $("#displaySelected").css("margin-top", "0"); //remove spaces above display box
+//         }
+//       }
+//     }
+//   });
+// });
 $(document).ready(function () {
+  $("td").click(function () {
+    var content = $(this).text();
+    var columnIndex = $(this).index();
+    var cliffSiteName = $("th").eq(columnIndex).text();
 
-    // loop through all table cells
-    $("table td").each(function () {
-        let content = $(this).text().trim();
-        let colIndex = $(this).index();
+    if (content !== "Not Available") {
+      $(this).toggleClass("tdhighlight");
 
-        // skip first column (activity names)
-        if (colIndex === 0) return;
+      if ($(this).hasClass("tdhighlight")) {
+        $("#selectedActivities").append("<p>" + content + " at " + cliffSiteName + "</p>");
+      } else {
+        $("#selectedActivities p:contains(" + content + ")").remove();
+      }
 
-        // skip "Not Available"
-        if (content === "Not Available") return;
-
-        // make selectable
-        $(this).addClass("selectable-cell");
-
-        // click behavior
-        $(this).on("click", function () {
-            let cliffName = $("th").eq(colIndex).text();
-
-            $(this).toggleClass("selected");
-
-            if ($(this).hasClass("selected")) {
-
-                // show selected display box
-                $("#displaySelected").css({
-                    "visibility": "visible",
-                    "margin-top": "2em"
-                });
-
-                // add selected activity text
-                $("#result").append("<p>" + content + " at " + cliffName + "</p>");
-
-            } else {
-
-                // remove unselected activity
-                $("#result p:contains('" + content + "')").remove();
-
-                // hide box if no selections remain
-                if ($("#result p").length === 0) {
-                    $("#displaySelected").css({
-                        "visibility": "hidden",
-                        "margin-top": "0"
-                    });
-                }
-            }
-        });
-    });
-
-    // ⭐ NEW PART — index() + eq() logic for assignment requirement
-    $("table").on("click", "td", function () {
-
-        let colIndex = $(this).index();               // which column
-        let rowIndex = $(this).closest("tr").index(); // which row
-
-        let cliffName = $("th").eq(colIndex).text();  // column header
-        let activityName = $("tr").eq(rowIndex).find("td").eq(0).text(); // first 
-        let selectedActivity = $(this).text();        // clicked cell text
-
-        // append to selected list
-        $("#selected").append(
-            "<p> aaa" + selectedActivity + " at " + cliffName + "</p>"
-        );
-    });
-
+      // If there's at least one selected activity, show the modal
+      if ($("#selectedActivities").has("p").length > 0) {
+        $("#activityModal").modal("show");
+      }
+    }
+  });
 });

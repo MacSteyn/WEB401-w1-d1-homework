@@ -1,209 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cliffs | Great Cliffs of California</title>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Great Cliffs of California</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
+    <!-- jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <!-- Font Awesome -->
     <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    >
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Bootstrap -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
-
-    <style>
-        /* ===== Cliff Images ===== */
-        .cliff img {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .cliff img:hover {
-            transform: scale(1.05);
-        }
-
-        /* ===== Popup Overlay ===== */
-        .image-popup {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.85);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .image-popup img {
-            max-width: 90%;
-            max-height: 90%;
-            transform: scale(0.8);
-            animation: zoomIn 0.3s forwards;
-        }
-
-        @keyframes zoomIn {
-            to {
-                transform: scale(1);
-            }
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 30px;
-            color: #fff;
-            cursor: pointer;
-        }
-    </style>
-</head>
-
-<body id="cliffs">
-
-<!-- Header -->
-<header>
-    <div class="main-header">
-        <div class="logo">
-            <img src="images/logo.png" alt="Great Cliffs Logo" width="125">
-        </div>
-
-        <nav class="main-menu navbar navbar-expand-lg navbar-light">
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="new-styles.css" />
+  </head>
+  <body id="cliff">
+    <div id="container">
+      <header class="">
+        <div class="main-header">
+          <div class="logo">
+            <img src="images/logo.png" alt="Great Cliffs Logo" width="125" />
+          </div>
+          <nav class="navbar navbar-expand-lg justify-content-end main-menu">
+            <div class="">
+              <button class="navbar-toggler ms-auto" style="margin-top: 25px;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="cliffs.html">Cliffs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                  <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                  <li class="nav-item active"><a class="nav-link" href="cliffs.html">Cliffs</a></li>
+                  <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                  <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
+              </div>
             </div>
-        </nav>
-    </div>
-</header>
+          </nav>
+        </div>
+        
+      </header>
 
-<hr>
-
-<!-- Main Content -->
-<main>
-    <h2>California's Greatest Cliffs</h2>
-
-    <p>
-        The greatest cliffs are these four cliffs located in southern California.
-        Each cliff has its own uniqueness and beauty.
-    </p>
-
-    <div class="cliffs-container">
-
-        <div class="cliff">
+      <main>
+        <h2>California's Greatest Cliffs</h2>
+        <p>
+          The greatest cliffs are these four cliffs located in southern
+          California. Each of these cliffs have their own uniqueness and beauty:
+          West Cliff, North Cliff, East Cliff and South Cliff are the pride of
+          California. Each cliff has many amenities to offer visitors such as
+          recreational areas, camping sites, wildlife watch spots and overnight
+          cabins.
+        </p>
+        <p>
+          No matter which direction you head from Irvine, California, the sites
+          are easily reached within a 100 mile radius. West Cliff is the most
+          popular among Westcliff University campus students because of its
+          close proximity.
+        </p>
+        <div class="cliffs-container">
+          <div class="cliff">
             <div class="caption">West Cliff</div>
-            <img src="images/cliff-west-sea.jpg" alt="West Cliff"
-                 tabindex="0" onclick="openPopup(this)"
-                 onkeydown="handleKey(event, this)">
-        </div>
-
-        <div class="cliff">
+            <img src="images/cliff-west-sea.jpg" alt="West Cliff">
+          </div>
+          <div class="cliff">
             <div class="caption">North Cliff</div>
-            <img src="images/cliff-north-mountain.jpg" alt="North Cliff"
-                 tabindex="0" onclick="openPopup(this)"
-                 onkeydown="handleKey(event, this)">
-        </div>
-
-        <div class="cliff">
+            <img src="images/cliff-north-mountain.jpg" alt="North Cliff">
+          </div>
+          <div class="cliff">
             <div class="caption">East Cliff</div>
-            <img src="images/cliff-east-river.jpg" alt="East Cliff"
-                 tabindex="0" onclick="openPopup(this)"
-                 onkeydown="handleKey(event, this)">
-        </div>
-
-        <div class="cliff">
+            <img src="images/cliff-east-river.jpg" alt="East Cliff">
+          </div>
+          <div class="cliff">
             <div class="caption">South Cliff</div>
-            <img src="images/cliff-south-canyon.jpg" alt="South Cliff"
-                 tabindex="0" onclick="openPopup(this)"
-                 onkeydown="handleKey(event, this)">
+            <img src="images/cliff-south-canyon.jpg" alt="South Cliff">
+          </div>
         </div>
-
-    </div>
-</main>
-
-<!-- Popup -->
-<div class="image-popup" id="imagePopup" role="dialog" aria-modal="true">
-    <span class="close-btn" onclick="closePopup()" aria-label="Close">&times;</span>
-    <img id="popupImage" alt="">
-</div>
-
-<hr>
-
-<!-- Partners -->
-<script src="js/site_scripts.js"></script>
-
- <!-- Footer -->
-<footer>
-    <div id="nondisclaimer">
-        <div class="copy">
-            &copy; Copyright 2020 :: GreatCliffs.com
-        </div>
-        <div class="social">
+      </main>
+      <section class="container-fluid">
+        <div class="row">
+        <ul id="partners" class="list-unstyled text-center">
+          <li class="partner mb-3">
+            <img
+              src="images/partners/partner-bustour.png"
+              alt="Partner Bus Tours"
+            />
+          </li>
+          <li class="partner mb-3">
+            <img
+              src="images/partners/partner-cabinrental.png"
+              alt="Partner Cabin Rental"
+            />
+          </li>
+          <li class="partner mb-3">
+            <img
+              src="images/partners/partner-campingadv.png"
+              alt="Partner Camping Adventure"
+            />
+          </li>
+          <li class="partner mb-3">
+            <img
+              src="images/partners/partner-collegetours.png"
+              alt="Partner College Tours"
+            />
+          </li>
+          <li class="partner mb-3">
+            <img
+              src="images/partners/partner-rentalbike.png"
+              alt="Partner Bike Rentals"
+            />
+          </li>
+          <li class="partner mb-3">
+            <img
+              src="images/partners/partner-tourgroup.png"
+              alt="Partner Tour Group"
+            />
+          </li>
+        </ul>
+      </div>
+      </section>
+      <footer>
+        <div id="nondisclaimer">
+          <div class="copy">&copy; Copyright 2020 :: GreatCliffs.com</div>
+          <div class="social">
             <a href="#" class="fa fa-facebook"></a>
             <a href="#" class="fa fa-instagram"></a>
             <a href="#" class="fa fa-twitter"></a>
+          </div>
         </div>
-    </div>
-
-    <div id="disclaimer">
-        <p>
+        <div id="disclaimer">
+          <p>
             This website is designed and created solely for educational purposes
             only at Westcliff University. All contents are not intended for any
             commercial gain or use.
-        </p>
+          </p>
+        </div>
+      </footer>
     </div>
-</footer>
 
-<!-- JavaScript -->
-<script>
-    const popup = document.getElementById("imagePopup");
-    const popupImage = document.getElementById("popupImage");
+    <!-- Lightbox Elements -->
+    <div class="backdrop"></div>
+    <div class="box">
+      <div class="close">&times;</div>
+    </div>
 
-    function openPopup(img) {
-        popupImage.src = img.src;
-        popupImage.alt = img.alt;
-        popup.style.display = "flex";
-        popup.focus();
-    }
-
-    function closePopup() {
-        popup.style.display = "none";
-    }
-
-    function handleKey(event, img) {
-        if (event.key === "Enter") {
-            openPopup(img);
-        }
-    }
-
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            closePopup();
-        }
-    });
-</script>
-
-</body>
+    <!-- Lightbox Script -->
+    <script src="js/lightbox.js"></script>
+  </body>
 </html>
